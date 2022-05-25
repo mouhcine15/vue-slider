@@ -32,6 +32,13 @@ var root = new Vue({
     },
     
     methods: {
+        nextimg(){
+            this.attivazione ++;
+            if (this.attivazione > this.slides.length-1) {
+                this.attivazione = 0;
+            }
+        },
+        
         previusimg(){
             this.attivazione --;
             if (this.attivazione < 0) {
@@ -39,12 +46,11 @@ var root = new Vue({
             }
         },
 
-        nextimg(){
-            this.attivazione ++;
-            if (this.attivazione > this.slides.length) {
-                this.attivazione = 0;
-            }
-        }
-    }
 
+        directimg(attivazione) {
+            
+            this.attivazione = attivazione;
+        }
+    }   
 });
+
