@@ -1,6 +1,7 @@
 var root = new Vue({
     el: "#app",
     data: {
+        autoSlider: " ",
         attivazione: 0,
         slides: [
             {
@@ -30,7 +31,9 @@ var root = new Vue({
             }
         ]
     },
-    
+    created() {
+        this.autoSlider = setInterval(this.nextimg, 1000)
+    },
     methods: {
         nextimg(){
             this.attivazione ++;
@@ -46,11 +49,19 @@ var root = new Vue({
             }
         },
 
-
         directimg(attivazione) {
             
             this.attivazione = attivazione;
+        },
+
+        startAutoSlides() {
+            this.autoSlider = setInterval(this.nextimg, 1000)
+        },
+
+        stopAutoSlides() {
+            clearInterval(this.autoSlider)
         }
+
     }   
 });
 
